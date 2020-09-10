@@ -8,12 +8,45 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.btn {
+    position: absolute;
+    top: 15px;
+    left: 45px;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    background: #1b1b1b;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: left 0.4s ease;
+}
+
+.btn.click {
+    left: 260px;
+}
+
+.btn span {
+    color: white;
+    font-size: 28px;
+    line-height: 45px;
+
+}
+
+.btn.click span:before {
+    content: '/f00d';
+}
+
 .sidebar {
     position: fixed;
     width: 250px;
     height: 100%;
-    left: 0;
+    left: -250px;
     background: #1b1b1b;
+    transition: left 0.4s ease;
+}
+
+.sidebar.show {
+    left: 0px;
 }
 
 .sidebar .text {
@@ -50,7 +83,7 @@ nav ul li a {
     border-left: 3px solid transparent;
 }
 
-nav ul li a:hover {
+nav ul li.active a {
     color: cyan;
     background: #1e1e1e;
     border-left-color: cyan;
@@ -59,6 +92,10 @@ nav ul li a:hover {
 nav ul ul {
     position: static;
     display: none;  
+}
+
+nav ul li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 nav ul .feat-show.show{
@@ -80,6 +117,17 @@ nav ul ul a {
     padding-left: 80px;
 }
 
+nav ul li.active ul li a {
+    color: #e6e6e6;
+    background: #1b1b1b;
+    border-left-color: transparent;
+}
+
+nav ul ul li a:hover {
+    color: cyan!important;
+    background: #1e1e1e!important;
+}
+
 nav ul li a span {
     position: absolute;
     top: 50%;
@@ -89,6 +137,6 @@ nav ul li a span {
     transition: transform 0.4s;
 }
 
-nav ul li a:hover span {
+nav ul li a span.rotate {
     transform: translateY(-50%) rotate(-180deg);
 }
